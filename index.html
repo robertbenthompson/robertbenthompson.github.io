@@ -210,6 +210,7 @@
         </ul>
 
 
+
         <div class="subheading mb-3">Skills</div>
         <ul class="fa-ul mb-0">
           <li>
@@ -225,7 +226,88 @@
             <b>Workflow: </b>
             Agile Development &amp; Scrum</li>
         </ul>
+        <br>
+        <b>My favorite Java implementation of Quicksort:</b>
+        <br>
+        <button onclick="qsFunc()">Click me!</button>
+
+        <script>
+      function qsFunc() {
+        var x = document.getElementById("qs");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+      </script>
+
+        <div id="qs" style="display:none">
+          <pre class="brush:java"> public static void main(String[] args) {
+        int[] a = {1, 5, 20, 12, 3, 6, 4, 7, 2, 49};
+
+        System.out.println((Arrays.toString(a)));
+        partition(a, 0, (a.length-1));
+        System.out.println((Arrays.toString(a)));
+    }
+
+    public static void partition(int[] ia, int lo, int hi ){
+         /*
+         * At first I was doing pivot = ia[ia.length/2] which
+         * makes no sense when recursively partitioning subarrays!
+          */
+        int pivot = ia[lo + (hi-lo)/2];
+
+        /*
+        * When comparing both sides of the pivot, i and j traverse
+        * the array, while lo and hi are used to mark the start
+        * and end of the array (or subarray). Later we compare the
+        * latest i and j values with the hi and lo values.
+         */
+        int i = lo;
+        int j = hi;
+
+        /*
+        * This is the part where i and j travel through the array
+        * until they find values that need to be swapped.
+         */
+            while (ia[i] < pivot)
+                i++;
+
+
+            while (ia[j] > pivot)
+                j--;
+
+        /*
+         * We do i++ and j-- after the swap so
+         * that their placeholders keep up with
+         * the array! Without this I was getting
+         * weird souts like "j=2 ia[j]=3" when
+         * in reality ia[2] should be 5
+         */
+            if (i <= j) {
+                int temp = ia[i];
+                ia[i] = ia[j];
+                ia[j] = temp;
+                i++;
+                j--;
+            }
+
+        /*
+        * Now create sub arrays. This is the recursive step.
+         */
+        if( lo < j )
+            partition(ia, lo, j);
+
+        if( hi > i )
+            partition(ia, i, hi);
+
+
+    } </pre>
+        </div>
       </div>
+
+
     </section>
 
     <hr class="m-0">
@@ -249,6 +331,8 @@
         <br>
        <a href="https://drive.google.com/open?id=16m7sDFh_FE3o9kCMwjGXrQB0avTmaIpidetXVUcze7c">Traditional Format</a>
       </div>
+
+
     </section>
 
     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="HelloWord">
