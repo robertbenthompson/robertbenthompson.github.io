@@ -27,7 +27,7 @@ body {
   }
 }
 
-/* Modern Headings - Montserrat + Bolder */
+/* Modern Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
   font-weight: 700;
@@ -66,7 +66,7 @@ p.lead {
   color: var(--navy-dark);
 }
 
-/* Primary Colors - Vibrant Teal Everywhere */
+/* Primary Colors */
 .bg-primary {
   background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)) !important;
 }
@@ -86,7 +86,7 @@ a:hover, a:focus, a:active {
   text-decoration: none;
 }
 
-/* Sexy Social Icons */
+/* Social Icons */
 .social-icons a {
   display: inline-block;
   height: 3.5rem;
@@ -111,7 +111,7 @@ a:hover, a:focus, a:active {
   box-shadow: 0 10px 25px rgba(32, 201, 151, 0.4);
 }
 
-/* Dev Icons with Scale Hover */
+/* Dev Icons */
 .dev-icons {
   font-size: 3rem;
 }
@@ -125,7 +125,7 @@ a:hover, a:focus, a:active {
   transform: scale(1.2) rotate(5deg);
 }
 
-/* Navbar Enhancements */
+/* Navbar / Sidebar - FIXED */
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
@@ -155,13 +155,7 @@ a:hover, a:focus, a:active {
     flex-direction: column;
     width: 17rem;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(32, 201, 151, 0.95), rgba(27, 170, 128, 0.95));
-  }
-
-  #sideNav .navbar-brand {
-    display: flex;
-    margin: auto auto 0;
-    padding: 0.5rem;
+    background: linear-gradient(180deg, rgba(32, 201, 151, 0.95), rgba(27, 170, 128, 0.95)) !important;
   }
 
   #sideNav .navbar-brand .img-profile {
@@ -178,7 +172,7 @@ a:hover, a:focus, a:active {
   }
 }
 
-/* Sections - Subtle Gradient + Border Accent */
+/* Sections */
 section.resume-section {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
@@ -204,7 +198,7 @@ section.resume-section {
   }
 }
 
-/* Buttons - Gradient + Lift Effect */
+/* Buttons */
 .btn-primary {
   background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
   border: none;
@@ -220,41 +214,4 @@ section.resume-section {
 .btn-primary:hover {
   background: linear-gradient(45deg, var(--primary-dark), var(--primary-color));
   transform: translateY(-3px);
-  box-shadow: 0 15px 35px rgba(32, 201, 151, 0.5);
-  color: white !important;
-}
-
-/* Resume Items */
-section.resume-section .resume-item .resume-date {
-  min-width: none;
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-/* Progress Bars (if you add skills bars later) */
-.progress {
-  background-color: rgba(32, 201, 151, 0.2);
-  border-radius: 10px;
-  height: 0.75rem;
-}
-
-.progress-bar {
-  background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-  border-radius: 10px;
-}
-
-/* Code Blocks Enhancement */
-pre {
-  background: #2d3748;
-  border-radius: 12px;
-  padding: 1.5rem;
-  border: 1px solid var(--primary-light);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Responsive Typography */
-@media (max-width: 768px) {
-  h1 { font-size: 4rem; line-height: 4rem; }
-  h2 { font-size: 2.5rem; }
-  #sideNav { width: 100% !important; }
-}
+  box-shadow
