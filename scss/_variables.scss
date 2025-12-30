@@ -1,39 +1,42 @@
 // Variables
+//
+// Copy variables from `_variables.scss` to this file to override
+// any Bootstrap variables that have been imported.
 
-// Restate Bootstrap Variables
+// Primary color - changing from the original orange-brown to vibrant teal
+$primary:       #20c997;     // Main accent color (teal/green - fresh and modern)
+$secondary:     #495057;
+$success:       #20c997;
+$info:          #17a2b8;
+$warning:       #ffc107;
+$danger:        #dc3545;
+$light:         #f8f9fa;
+$dark:          #343a40;
 
-$white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #868e96 !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black:    #000 !default;
+// Typography
+$font-family-sans-serif:      'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$font-family-display:         'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$headings-font-family:        $font-family-display;
 
-$blue:    #007bff !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #e83e8c !default;
-$red:     #dc3545 !default;
-$orange:  #BD5D38 !default;
-$yellow:  #ffc107 !default;
-$green:   #28a745 !default;
-$teal:    #20c997 !default;
-$cyan:    #17a2b8 !default;
+// Navbar
+$navbar-dark-hover-color:     $primary;
 
-$primary:       $orange !default;
-$secondary:     $gray-600 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-800 !default;
+// Links
+$link-color:                  $primary;
+$link-hover-color:            darken($primary, 15%);
 
-// Page Variables
+// Social icons hover
+$social-icon-bg-hover:        $primary;
 
-$sidebar-base-width: 17rem;
+// Dev icons hover
+$dev-icon-hover-color:       $primary;
+
+// Body
+$body-color:                  #495057;
+
+// Headings
+$headings-color:              #2c3e50;
+
+// Optional: Add a subtle gradient for sections if you want extra flair later
+$section-bg-gradient-start:   #f8f9fa;
+$section-bg-gradient-end:     #ffffff;
