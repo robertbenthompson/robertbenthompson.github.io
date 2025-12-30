@@ -126,6 +126,10 @@ a:hover, a:focus, a:active {
 }
 
 /* Navbar / Sidebar - FIXED */
+#sideNav .navbar-nav {
+  flex-direction: column !important;
+}
+
 #sideNav .navbar-nav .nav-item .nav-link {
   font-weight: 800;
   letter-spacing: 0.05rem;
