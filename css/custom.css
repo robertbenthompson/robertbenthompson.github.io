@@ -1,0 +1,87 @@
+/* Custom Sexy Overrides for Resume Template */
+
+/* Modern Primary Color: Vibrant Teal */
+:root {
+  --primary-color: #20c997;
+  --primary-dark: #1baa80;
+  --primary-light: #63d7b8;
+}
+
+/* Links & Accents */
+a,
+.text-primary,
+.bg-primary {
+  color: var(--primary-color) !important;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: var(--primary-dark) !important;
+}
+
+/* Backgrounds */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+/* Social Icons & Dev Icons Hover */
+.social-icons a {
+  background-color: #495057;
+  transition: all 0.3s ease;
+}
+.social-icons a:hover {
+  background-color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(32, 201, 151, 0.3);
+}
+
+.dev-icons .list-inline-item i:hover {
+  color: var(--primary-color);
+  transform: scale(1.15);
+  transition: all 0.3s ease;
+}
+
+/* Buttons (Download Resume, etc.) */
+.btn-primary {
+  background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+  border: none;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(32, 201, 151, 0.4);
+}
+
+/* Section Headers - Bolder & More Pop */
+h1, h2, h3, h4, h5, h6 {
+  color: #2c3e50 !important;
+  letter-spacing: 1px;
+}
+
+h1 {
+  font-size: 5.5rem;
+  line-height: 5rem;
+}
+h2 {
+  font-size: 3.2rem;
+  color: var(--primary-color);
+}
+
+/* Subtle Section Background */
+section.resume-section {
+  background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+  border-left: 4px solid var(--primary-light);
+}
+
+/* Navbar Active State */
+#sideNav .navbar-nav .nav-item .nav-link.active {
+  color: var(--primary-color) !important;
+  font-weight: 900;
+}
+
+/* Smooth Scroll Feel */
+html {
+  scroll-behavior: smooth;
+}
