@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beach House Cost Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            padding: 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .input-section {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            align-items: flex-end;
+        }
+
+        .input-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+
+        .input-group input,
+        .input-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: #0077b6;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-primary {
+            background: #0077b6;
+            color: white;
+        }
+
+        .btn-danger {
+            background: #e63946;
+            color: white;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+        }
+
+        .btn-reset {
+            background: #6c757d;
+            color: white;
+        }
+
+        .scoring-guide {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .scoring-guide h3 {
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        .scoring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 8px;
+        }
+
+        .score-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            background: white;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+
+        .score-item .room-name {
+            color: #555;
+        }
+
+        .score-item .score-badge {
+            background: #0077b6;
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .rooms-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .rooms-table thead {
+            background: #f0f7ff;
+        }
+
+        .rooms-table th {
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            color: #333;
+            border-bottom: 2px solid #0077b6;
+            font-size: 0.9rem;
+        }
+
+        .rooms-table td {
+            padding: 14px 16px;
+            border-bottom: 1px solid #eee;
+            font-size: 0.95rem;
+        }
+
+        .rooms-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .rooms-table .cost-cell {
+            font-weight: 700;
+            color: #0077b6;
+            font-size: 1.1rem;
+        }
+
+        .rooms-table .percent-cell {
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+
+        .empty-state p {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        .summary-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-item .label {
+            font-size: 0.75rem;
+            opacity: 0.85;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .summary-item .value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .actions-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .room-label-cell {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .room-label-cell .room-type {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .room-label-cell .room-score {
+            font-size: 0.75rem;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        @media (max-width: 600px) {
+            .input-section {
+                flex-direction: column;
+            }
+
+            .header h1 {
+                font-size: 1.4rem;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .scoring-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rooms-table th,
+            .rooms-table td {
+                padding: 10px 8px;
+                font-size: 0.85rem;
+            }
+
+            .summary-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏖️ Beach House Cost Calculator</h1>
+            <p>Fairly divide your vacation rental cost among rooms based on amenities</p>
+        </div>
+
+        <div class="content">
+            <!-- Scoring Guide -->
+            <div class="scoring-guide">
+                <h3>Room Scoring Guide</h3>
+                <div class="scoring-grid">
+                    <div class="score-item">
+                        <span class="room-name">Master + Bath + Balcony</span>
+                        <span class="score-badge">10</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="room-name">Master + Bath</span>
+                        <span class="score-badge">8</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="room-name">Queen + Private Bath</span>
+                        <span class="score-badge">6</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="room-name">Double (Two Full Beds)</span>
+                        <span class="score-badge">5</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="room-name">Queen (No Private Bath)</span>
+                        <span class="score-badge">4</span>
+                    </div>
+                    <div class="score-item">
+                        <span class="room-name">Kids / Bunk Room</span>
+                        <span class="score-badge">2</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Controls -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="totalPrice">Total Weekly Price ($)</label>
+                    <input type="number" id="totalPrice" placeholder="e.g. 5000" min="0" step="50">
+                </div>
+                <div class="input-group">
+                    <label for="roomType">Room Type</label>
+                    <select id="roomType">
+                        <option value="10">Master King + Bath + Balcony (10)</option>
+                        <option value="8">Master King + Bath (8)</option>
+                        <option value="6">Queen + Private Bath (6)</option>
+                        <option value="5">Double — Two Full Beds (5)</option>
+                        <option value="4">Queen — No Private Bath (4)</option>
+                        <option value="2">Kids / Bunk Room (2)</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary" onclick="addRoom()" aria-label="Add room to list">Add Room</button>
+            </div>
+
+            <!-- Room List Table -->
+            <div id="tableContainer">
+                <div class="empty-state" id="emptyState">
+                    <p>👆 Enter the total weekly price and add rooms to see the cost breakdown.</p>
+                </div>
+
+                <table class="rooms-table" id="roomsTable" style="display: none;" aria-label="Room cost breakdown">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Room Type</th>
+                            <th scope="col">Cost / Week</th>
+                            <th scope="col">Share</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="roomsBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Summary -->
+            <div class="summary-bar" id="summaryBar" style="display: none;">
+                <div class="summary-item">
+                    <div class="label">Total Price</div>
+                    <div class="value" id="summaryTotal">$0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Rooms</div>
+                    <div class="value" id="summaryRooms">0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Total Score</div>
+                    <div class="value" id="summaryScore">0</div>
+                </div>
+                <div class="summary-item">
+                    <div class="label">Allocated</div>
+                    <div class="value" id="summaryAllocated">$0</div>
+                </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="actions-row">
+                <button class="btn btn-reset" onclick="resetAll()" aria-label="Clear all rooms and reset">Reset All</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ROOM_TYPES = {
+            '10': 'Master King + Bath + Balcony',
+            '8': 'Master King + Bath',
+            '6': 'Queen + Private Bath',
+            '5': 'Double — Two Full Beds',
+            '4': 'Queen — No Private Bath',
+            '2': 'Kids / Bunk Room'
+        };
+
+        let rooms = [];
+
+        function addRoom() {
+            var totalPriceInput = document.getElementById('totalPrice');
+            var totalPrice = parseFloat(totalPriceInput.value);
+
+            if (!totalPrice || totalPrice <= 0) {
+                alert('Please enter a valid total weekly price greater than $0.');
+                totalPriceInput.focus();
+                return;
+            }
+
+            var roomTypeSelect = document.getElementById('roomType');
+            var score = parseInt(roomTypeSelect.value, 10);
+            var label = ROOM_TYPES[String(score)];
+
+            rooms.push({ score: score, label: label });
+            recalculate();
+        }
+
+        function removeRoom(index) {
+            rooms.splice(index, 1);
+            recalculate();
+        }
+
+        function recalculate() {
+            var totalPrice = parseFloat(document.getElementById('totalPrice').value) || 0;
+            var totalScore = rooms.reduce(function(sum, room) { return sum + room.score; }, 0);
+            var tbody = document.getElementById('roomsBody');
+            var table = document.getElementById('roomsTable');
+            var emptyState = document.getElementById('emptyState');
+            var summaryBar = document.getElementById('summaryBar');
+
+            if (rooms.length === 0) {
+                table.style.display = 'none';
+                emptyState.style.display = 'block';
+                summaryBar.style.display = 'none';
+                return;
+            }
+
+            table.style.display = 'table';
+            emptyState.style.display = 'none';
+            summaryBar.style.display = 'flex';
+
+            var html = '';
+            var totalAllocated = 0;
+
+            for (var i = 0; i < rooms.length; i++) {
+                var room = rooms[i];
+                var cost = totalScore > 0 ? (room.score / totalScore) * totalPrice : 0;
+                var percent = totalScore > 0 ? (room.score / totalScore) * 100 : 0;
+                totalAllocated += cost;
+
+                html += '<tr>';
+                html += '<td>' + (i + 1) + '</td>';
+                html += '<td><div class="room-label-cell">';
+                html += '<span class="room-type">' + room.label + '</span>';
+                html += '<span class="room-score">Score: ' + room.score + ' of ' + totalScore + '</span>';
+                html += '</div></td>';
+                html += '<td class="cost-cell">$' + cost.toFixed(2) + '</td>';
+                html += '<td class="percent-cell">' + percent.toFixed(1) + '%</td>';
+                html += '<td><button class="btn btn-danger" onclick="removeRoom(' + i + ')" aria-label="Remove room ' + (i + 1) + '">Remove</button></td>';
+                html += '</tr>';
+            }
+
+            tbody.innerHTML = html;
+
+            document.getElementById('summaryTotal').textContent = '$' + totalPrice.toLocaleString();
+            document.getElementById('summaryRooms').textContent = rooms.length;
+            document.getElementById('summaryScore').textContent = totalScore;
+            document.getElementById('summaryAllocated').textContent = '$' + totalAllocated.toFixed(2);
+        }
+
+        function resetAll() {
+            rooms = [];
+            document.getElementById('totalPrice').value = '';
+            recalculate();
+        }
+
+        // Recalculate when total price changes
+        document.getElementById('totalPrice').addEventListener('input', function() {
+            if (rooms.length > 0) {
+                recalculate();
+            }
+        });
+    </script>
+</body>
+</html>
