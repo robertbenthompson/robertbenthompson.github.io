@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             background: white;
             border-radius: 16px;
@@ -48,170 +48,104 @@
             padding: 30px;
         }
 
-        .input-section {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            align-items: flex-end;
+        .total-cost-section {
+            margin-bottom: 30px;
         }
 
-        .input-group {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .input-group label {
+        .total-cost-section label {
             display: block;
             font-weight: 600;
             color: #333;
             margin-bottom: 6px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        .input-group input,
-        .input-group select {
+        .total-cost-section input {
             width: 100%;
+            max-width: 300px;
             padding: 12px 16px;
             border: 2px solid #e0e0e0;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             transition: border-color 0.3s;
         }
 
-        .input-group input:focus,
-        .input-group select:focus {
+        .total-cost-section input:focus {
             outline: none;
             border-color: #0077b6;
         }
 
-        .btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .btn-primary {
-            background: #0077b6;
-            color: white;
-        }
-
-        .btn-danger {
-            background: #e63946;
-            color: white;
-            padding: 8px 14px;
-            font-size: 0.85rem;
-        }
-
-        .btn-reset {
-            background: #6c757d;
-            color: white;
-        }
-
-        .scoring-guide {
-            background: #f8f9fa;
-            border-radius: 10px;
-            padding: 20px;
+        .rooms-list {
             margin-bottom: 25px;
         }
 
-        .scoring-guide h3 {
+        .rooms-list h3 {
             color: #333;
-            margin-bottom: 12px;
-            font-size: 1rem;
-        }
-
-        .scoring-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 8px;
-        }
-
-        .score-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 12px;
-            background: white;
-            border-radius: 6px;
-            font-size: 0.85rem;
-        }
-
-        .score-item .room-name {
-            color: #555;
-        }
-
-        .score-item .score-badge {
-            background: #0077b6;
-            color: white;
-            padding: 2px 10px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.8rem;
-        }
-
-        .rooms-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        .rooms-table thead {
-            background: #f0f7ff;
-        }
-
-        .rooms-table th {
-            padding: 14px 16px;
-            text-align: left;
-            font-weight: 600;
-            color: #333;
-            border-bottom: 2px solid #0077b6;
-            font-size: 0.9rem;
-        }
-
-        .rooms-table td {
-            padding: 14px 16px;
-            border-bottom: 1px solid #eee;
-            font-size: 0.95rem;
-        }
-
-        .rooms-table tbody tr:hover {
-            background: #f8f9fa;
-        }
-
-        .rooms-table .cost-cell {
-            font-weight: 700;
-            color: #0077b6;
+            margin-bottom: 15px;
             font-size: 1.1rem;
         }
 
-        .rooms-table .percent-cell {
+        .room-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 16px;
+            border-bottom: 1px solid #eee;
+            gap: 12px;
+        }
+
+        .room-row:last-child {
+            border-bottom: none;
+        }
+
+        .room-row:hover {
+            background: #f8f9fa;
+        }
+
+        .room-info {
+            flex: 1;
+        }
+
+        .room-info .room-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .room-info .room-details {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .room-score-input {
+            width: 70px;
+            padding: 8px 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .room-score-input:focus {
+            outline: none;
+            border-color: #0077b6;
+        }
+
+        .room-cost {
+            min-width: 90px;
+            text-align: right;
+            font-weight: 700;
+            color: #0077b6;
+            font-size: 1.05rem;
+        }
+
+        .room-percent {
+            min-width: 55px;
+            text-align: right;
             color: #666;
             font-size: 0.85rem;
-        }
-
-        .empty-state {
-            text-align: center;
-            padding: 40px 20px;
-            color: #999;
-        }
-
-        .empty-state p {
-            font-size: 1rem;
-            margin-top: 10px;
         }
 
         .summary-bar {
@@ -243,34 +177,7 @@
             font-weight: 700;
         }
 
-        .actions-row {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            flex-wrap: wrap;
-        }
-
-        .room-label-cell {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .room-label-cell .room-type {
-            font-weight: 600;
-            color: #333;
-        }
-
-        .room-label-cell .room-score {
-            font-size: 0.75rem;
-            color: #888;
-            margin-top: 2px;
-        }
-
         @media (max-width: 600px) {
-            .input-section {
-                flex-direction: column;
-            }
-
             .header h1 {
                 font-size: 1.4rem;
             }
@@ -279,14 +186,17 @@
                 padding: 20px;
             }
 
-            .scoring-grid {
-                grid-template-columns: 1fr;
+            .room-row {
+                flex-wrap: wrap;
+                gap: 8px;
             }
 
-            .rooms-table th,
-            .rooms-table td {
-                padding: 10px 8px;
-                font-size: 0.85rem;
+            .room-info {
+                flex-basis: 100%;
+            }
+
+            .room-score-input {
+                width: 60px;
             }
 
             .summary-bar {
@@ -300,91 +210,73 @@
     <div class="container">
         <div class="header">
             <h1>🏖️ Beach House Cost Calculator</h1>
-            <p>Fairly divide your vacation rental cost among rooms based on amenities</p>
+            <p>Divide vacation rental cost among rooms based on score multipliers</p>
         </div>
 
         <div class="content">
-            <!-- Scoring Guide -->
-            <div class="scoring-guide">
-                <h3>Room Scoring Guide</h3>
-                <div class="scoring-grid">
-                    <div class="score-item">
-                        <span class="room-name">Master + Bath + Balcony</span>
-                        <span class="score-badge">10</span>
+            <div class="total-cost-section">
+                <label for="totalPrice">Total Cost ($)</label>
+                <input type="number" id="totalPrice" placeholder="e.g. 5000" min="0" step="50">
+            </div>
+
+            <div class="rooms-list">
+                <h3>Rooms &amp; Score Multipliers</h3>
+
+                <div class="room-row">
+                    <div class="room-info">
+                        <div class="room-name">First Level: Queen Bed</div>
+                        <div class="room-details">Half bath</div>
                     </div>
-                    <div class="score-item">
-                        <span class="room-name">Master + Bath</span>
-                        <span class="score-badge">8</span>
+                    <input type="number" class="room-score-input" data-room="0" placeholder="0" min="0" max="10" step="0.1" aria-label="Score for First Level Queen Bed">
+                    <div class="room-cost" data-cost="0">$0.00</div>
+                    <div class="room-percent" data-percent="0">0%</div>
+                </div>
+
+                <div class="room-row">
+                    <div class="room-info">
+                        <div class="room-name">Third Level: King Bed</div>
+                        <div class="room-details">En-suite Full Bathroom</div>
                     </div>
-                    <div class="score-item">
-                        <span class="room-name">Queen + Private Bath</span>
-                        <span class="score-badge">6</span>
+                    <input type="number" class="room-score-input" data-room="1" placeholder="0" min="0" max="10" step="0.1" aria-label="Score for Third Level King Bed">
+                    <div class="room-cost" data-cost="1">$0.00</div>
+                    <div class="room-percent" data-percent="1">0%</div>
+                </div>
+
+                <div class="room-row">
+                    <div class="room-info">
+                        <div class="room-name">Third Level: Queen Bed</div>
+                        <div class="room-details">Shared bath</div>
                     </div>
-                    <div class="score-item">
-                        <span class="room-name">Double (Two Full Beds)</span>
-                        <span class="score-badge">5</span>
+                    <input type="number" class="room-score-input" data-room="2" placeholder="0" min="0" max="10" step="0.1" aria-label="Score for Third Level Queen Bed">
+                    <div class="room-cost" data-cost="2">$0.00</div>
+                    <div class="room-percent" data-percent="2">0%</div>
+                </div>
+
+                <div class="room-row">
+                    <div class="room-info">
+                        <div class="room-name">Third Level: Pyramid Bunk + Trundle</div>
+                        <div class="room-details">Shared bath</div>
                     </div>
-                    <div class="score-item">
-                        <span class="room-name">Queen (No Private Bath)</span>
-                        <span class="score-badge">4</span>
+                    <input type="number" class="room-score-input" data-room="3" placeholder="0" min="0" max="10" step="0.1" aria-label="Score for Third Level Bunk">
+                    <div class="room-cost" data-cost="3">$0.00</div>
+                    <div class="room-percent" data-percent="3">0%</div>
+                </div>
+
+                <div class="room-row">
+                    <div class="room-info">
+                        <div class="room-name">Top Floor Suite: Queen Bed</div>
+                        <div class="room-details">En-suite Full Bathroom with Balcony</div>
                     </div>
-                    <div class="score-item">
-                        <span class="room-name">Kids / Bunk Room</span>
-                        <span class="score-badge">2</span>
-                    </div>
+                    <input type="number" class="room-score-input" data-room="4" placeholder="0" min="0" max="10" step="0.1" aria-label="Score for Top Floor Suite">
+                    <div class="room-cost" data-cost="4">$0.00</div>
+                    <div class="room-percent" data-percent="4">0%</div>
                 </div>
             </div>
 
-            <!-- Input Controls -->
-            <div class="input-section">
-                <div class="input-group">
-                    <label for="totalPrice">Total Weekly Price ($)</label>
-                    <input type="number" id="totalPrice" placeholder="e.g. 5000" min="0" step="50">
-                </div>
-                <div class="input-group">
-                    <label for="roomType">Room Type</label>
-                    <select id="roomType">
-                        <option value="10">Master King + Bath + Balcony (10)</option>
-                        <option value="9.6">Master King + Bath (8)</option>
-                        <option value="9">Queen + Private Bath (6)</option>
-                        <option value="8.5">Double — Two Full Beds (5)</option>
-                        <option value="8.7">Queen — No Private Bath (4)</option>
-                        <option value="8">Kids / Bunk Room (2)</option>
-                    </select>
-                </div>
-                <button class="btn btn-primary" onclick="addRoom()" aria-label="Add room to list">Add Room</button>
-            </div>
-
-            <!-- Room List Table -->
-            <div id="tableContainer">
-                <div class="empty-state" id="emptyState">
-                    <p>👆 Enter the total weekly price and add rooms to see the cost breakdown.</p>
-                </div>
-
-                <table class="rooms-table" id="roomsTable" style="display: none;" aria-label="Room cost breakdown">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Room Type</th>
-                            <th scope="col">Cost / Week</th>
-                            <th scope="col">Share</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="roomsBody">
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Summary -->
-            <div class="summary-bar" id="summaryBar" style="display: none;">
+            <div class="summary-bar" id="summaryBar">
                 <div class="summary-item">
-                    <div class="label">Total Price</div>
+                    <div class="label">Total Cost</div>
                     <div class="value" id="summaryTotal">$0</div>
-                </div>
-                <div class="summary-item">
-                    <div class="label">Rooms</div>
-                    <div class="value" id="summaryRooms">0</div>
                 </div>
                 <div class="summary-item">
                     <div class="label">Total Score</div>
@@ -395,109 +287,45 @@
                     <div class="value" id="summaryAllocated">$0</div>
                 </div>
             </div>
-
-            <!-- Actions -->
-            <div class="actions-row">
-                <button class="btn btn-reset" onclick="resetAll()" aria-label="Clear all rooms and reset">Reset All</button>
-            </div>
         </div>
     </div>
 
     <script>
-        const ROOM_TYPES = {
-            '10': 'Master King + Bath + Balcony',
-            '9.6': 'Master King + Bath',
-            '9': 'Queen + Private Bath',
-            '8.5': 'Double — Two Full Beds',
-            '8.7': 'Queen — No Private Bath',
-            '8': 'Kids / Bunk Room'
-        };
-
-        let rooms = [];
-
-        function addRoom() {
-            var totalPriceInput = document.getElementById('totalPrice');
-            var totalPrice = parseFloat(totalPriceInput.value);
-
-            if (!totalPrice || totalPrice <= 0) {
-                alert('Please enter a valid total weekly price greater than $0.');
-                totalPriceInput.focus();
-                return;
-            }
-
-            var roomTypeSelect = document.getElementById('roomType');
-            var score = parseInt(roomTypeSelect.value, 10);
-            var label = ROOM_TYPES[String(score)];
-
-            rooms.push({ score: score, label: label });
-            recalculate();
-        }
-
-        function removeRoom(index) {
-            rooms.splice(index, 1);
-            recalculate();
-        }
-
         function recalculate() {
             var totalPrice = parseFloat(document.getElementById('totalPrice').value) || 0;
-            var totalScore = rooms.reduce(function(sum, room) { return sum + room.score; }, 0);
-            var tbody = document.getElementById('roomsBody');
-            var table = document.getElementById('roomsTable');
-            var emptyState = document.getElementById('emptyState');
-            var summaryBar = document.getElementById('summaryBar');
+            var inputs = document.querySelectorAll('.room-score-input');
+            var totalScore = 0;
 
-            if (rooms.length === 0) {
-                table.style.display = 'none';
-                emptyState.style.display = 'block';
-                summaryBar.style.display = 'none';
-                return;
+            // Calculate total score
+            for (var i = 0; i < inputs.length; i++) {
+                var score = parseFloat(inputs[i].value) || 0;
+                totalScore += score;
             }
 
-            table.style.display = 'table';
-            emptyState.style.display = 'none';
-            summaryBar.style.display = 'flex';
-
-            var html = '';
+            // Calculate and display each room's cost
             var totalAllocated = 0;
-
-            for (var i = 0; i < rooms.length; i++) {
-                var room = rooms[i];
-                var cost = totalScore > 0 ? (room.score / totalScore) * totalPrice : 0;
-                var percent = totalScore > 0 ? (room.score / totalScore) * 100 : 0;
+            for (var i = 0; i < inputs.length; i++) {
+                var score = parseFloat(inputs[i].value) || 0;
+                var cost = totalScore > 0 ? (score / totalScore) * totalPrice : 0;
+                var percent = totalScore > 0 ? (score / totalScore) * 100 : 0;
                 totalAllocated += cost;
 
-                html += '<tr>';
-                html += '<td>' + (i + 1) + '</td>';
-                html += '<td><div class="room-label-cell">';
-                html += '<span class="room-type">' + room.label + '</span>';
-                html += '<span class="room-score">Score: ' + room.score + ' of ' + totalScore + '</span>';
-                html += '</div></td>';
-                html += '<td class="cost-cell">$' + cost.toFixed(2) + '</td>';
-                html += '<td class="percent-cell">' + percent.toFixed(1) + '%</td>';
-                html += '<td><button class="btn btn-danger" onclick="removeRoom(' + i + ')" aria-label="Remove room ' + (i + 1) + '">Remove</button></td>';
-                html += '</tr>';
+                document.querySelector('[data-cost="' + i + '"]').textContent = '$' + cost.toFixed(2);
+                document.querySelector('[data-percent="' + i + '"]').textContent = percent.toFixed(1) + '%';
             }
 
-            tbody.innerHTML = html;
-
             document.getElementById('summaryTotal').textContent = '$' + totalPrice.toLocaleString();
-            document.getElementById('summaryRooms').textContent = rooms.length;
-            document.getElementById('summaryScore').textContent = totalScore;
+            document.getElementById('summaryScore').textContent = totalScore.toFixed(1);
             document.getElementById('summaryAllocated').textContent = '$' + totalAllocated.toFixed(2);
         }
 
-        function resetAll() {
-            rooms = [];
-            document.getElementById('totalPrice').value = '';
-            recalculate();
-        }
+        // Recalculate on any input change
+        document.getElementById('totalPrice').addEventListener('input', recalculate);
 
-        // Recalculate when total price changes
-        document.getElementById('totalPrice').addEventListener('input', function() {
-            if (rooms.length > 0) {
-                recalculate();
-            }
-        });
+        var scoreInputs = document.querySelectorAll('.room-score-input');
+        for (var i = 0; i < scoreInputs.length; i++) {
+            scoreInputs[i].addEventListener('input', recalculate);
+        }
     </script>
 </body>
 </html>
